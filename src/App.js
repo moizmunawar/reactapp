@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Navbar from './Components/Navbar';
 import News from './Components/News';
 import {
@@ -11,34 +11,31 @@ import {
 import LoadingBar from 'react-top-loading-bar' ;
 
 
-export default class App extends Component {
-  pageSize = 5 ;
-  state = {
-    progress : 0 
-  }
-  setProgress = (progress) =>{
-    this.setState({progress: progress})
-  }
-  render() {
+const App =()=> {
+
+ const pageSize = 5 ;
+  
+    const [progress, setProgress] = useState(0)
+  
     return (
       <div>
       <Router>
         <Navbar  />
-      <LoadingBar color='#f11946' progress={this.state.progress} />
+      <LoadingBar color='#f11946' progress={progress} />
         <Switch >
-          <Route path="/General"><News setProgress= {this.setProgress}  key="General" pageSize={this.pageSize} country = "in" category = 'General' /></Route>
-          <Route path="/Business"><News setProgress= {this.setProgress}   key="Business" pageSize={this.pageSize} country = "in" category = 'Business' /></Route>
-          <Route path="/Sports"><News setProgress= {this.setProgress}  key="Sports" pageSize={this.pageSize} country = "in" category = 'Sports' /></Route>
-          <Route path="/Health"><News setProgress= {this.setProgress}   key="Health" pageSize={this.pageSize} country = "in" category = 'Health' /></Route>
-          <Route path="/Technology"><News setProgress= {this.setProgress}   key="Technology" pageSize={this.pageSize} country = "in" category = 'Technology' /></Route>
-          <Route path="/Entertainment"><News setProgress= {this.setProgress}  key="Entertainment" pageSize={this.pageSize} country = "in" category = 'Entertainment' /></Route>
-          <Route path="/Science"><News setProgress= {this.setProgress}  key="Science" pageSize={this.pageSize} country = "in" category = 'Science' /></Route>
+          <Route path="/General"><News setProgress= {setProgress}  key="General" pageSize={pageSize} country = "in" category = 'General' /></Route>
+          <Route path="/Business"><News setProgress= {setProgress}   key="Business" pageSize={pageSize} country = "in" category = 'Business' /></Route>
+          <Route path="/Sports"><News setProgress= {setProgress}  key="Sports" pageSize={pageSize} country = "in" category = 'Sports' /></Route>
+          <Route path="/Health"><News setProgress= {setProgress}   key="Health" pageSize={pageSize} country = "in" category = 'Health' /></Route>
+          <Route path="/Technology"><News setProgress= {setProgress}   key="Technology" pageSize={pageSize} country = "in" category = 'Technology' /></Route>
+          <Route path="/Entertainment"><News setProgress= {setProgress}  key="Entertainment" pageSize={pageSize} country = "in" category = 'Entertainment' /></Route>
+          <Route path="/Science"><News setProgress= {setProgress}  key="Science" pageSize={pageSize} country = "in" category = 'Science' /></Route>
         </Switch>
       </Router>
       </div>
     )
-  }
+  
 }
 
-
+export default App;
 

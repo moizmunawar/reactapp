@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-export class Navbar extends Component {
-  render() {
+const Navbar = () =>{
+
     return (
       <div >
-      <nav className="navbar navbar-expand-lg bg-dark-tertiary" style={{  background: 'rgb(104 171 0)' }} >
+      <nav className="navbar navbar-expand-lg fixed-top bg-dark-tertiary" style={{  background: 'rgb(104 171 0)' }} >
             <div className="container-fluid">
-            <Link className="navbar-brand" to="/" style={{ color: 'white' }}>NewsMonkey</Link>
+            <Link className="navbar-brand" to="/"  style={{ color: 'white' ,}}>NewsMonkey</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
@@ -34,12 +34,19 @@ export class Navbar extends Component {
                 <li className="nav-item">
                 <Link className="nav-link" to="/Technology"style={{ color: 'white' }}>Technology</Link></li>
             </ul>
+            <div className="form-check form-switch mx-2">
+              <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault mx-2" style={{color: 'white'}}>Dark Mode</label>
+          </div>
+            <form className="d-flex" role="search">
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              <button className="btn btn-outline-light" type="submit">Search</button>
+           </form>
             </div>
             </div>
         </nav>
       </div>
     )
   }
-}
 
 export default Navbar
